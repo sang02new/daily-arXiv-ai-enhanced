@@ -116,7 +116,7 @@ function initEventListeners() {
 function getPreferredLanguage() {
   const browserLang = navigator.language || navigator.userLanguage;
   // Check if browser is set to Korean variants
-  if (browserLang.startsWith('zh')) {
+  if (browserLang.startsWith('ko')) {
     return 'Korean';
   }
   // Default to English for all other languages
