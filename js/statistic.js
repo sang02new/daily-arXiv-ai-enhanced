@@ -115,9 +115,9 @@ function initEventListeners() {
 // Function to detect preferred language based on browser settings
 function getPreferredLanguage() {
   const browserLang = navigator.language || navigator.userLanguage;
-  // Check if browser is set to Chinese variants
+  // Check if browser is set to Korean variants
   if (browserLang.startsWith('zh')) {
-    return 'Chinese';
+    return 'Korean';
   }
   // Default to English for all other languages
   return 'English';
@@ -155,7 +155,7 @@ async function fetchAvailableDates() {
     const text = await response.text();
     const files = text.trim().split('\n');
 
-    const dateRegex = /(\d{4}-\d{2}-\d{2})_AI_enhanced_(English|Chinese)\.jsonl/;
+    const dateRegex = /(\d{4}-\d{2}-\d{2})_AI_enhanced_(English|Korean)\.jsonl/;
     const dateLanguageMap = new Map(); // Store date -> available languages
     const dates = [];
     
