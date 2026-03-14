@@ -501,12 +501,12 @@ function initEventListeners() {
 // Function to detect preferred language based on browser settings
 function getPreferredLanguage() {
   const browserLang = navigator.language || navigator.userLanguage;
-  // Check if browser is set to Chinese variants
-  if (browserLang.startsWith('zh')) {
-    return 'Chinese';
+  // Check if browser is set to Korean variants
+  if (browserLang.startsWith('ko')) {
+    return 'Korean';
   }
-  // Default to Chinese for all other languages
-  return 'Chinese';
+  // Default to Korean for all other languages
+  return 'Korean';
 }
 
 // Function to select the best available language for a date
@@ -514,7 +514,7 @@ function selectLanguageForDate(date, preferredLanguage = null) {
   const availableLanguages = window.dateLanguageMap?.get(date) || [];
   
   if (availableLanguages.length === 0) {
-    return 'Chinese'; // fallback
+    return 'Korean'; // fallback
   }
   
   // Use provided preference or detect from browser
@@ -525,8 +525,8 @@ function selectLanguageForDate(date, preferredLanguage = null) {
     return preferred;
   }
   
-  // Fallback: prefer Chinese if available, otherwise use the first available
-  return availableLanguages.includes('Chinese') ? 'Chinese' : availableLanguages[0];
+  // Fallback: prefer Korean if available, otherwise use the first available
+  return availableLanguages.includes('Korean') ? 'Korean' : availableLanguages[0];
 }
 
 async function fetchAvailableDates() {
@@ -541,7 +541,7 @@ async function fetchAvailableDates() {
     const text = await response.text();
     const files = text.trim().split('\n');
 
-    const dateRegex = /(\d{4}-\d{2}-\d{2})_AI_enhanced_(English|Chinese)\.jsonl/;
+    const dateRegex = /(\d{4}-\d{2}-\d{2})_AI_enhanced_(English|Chinese|Korean)\.jsonl/;
     const dateLanguageMap = new Map(); // Store date -> available languages
     const dates = [];
     
